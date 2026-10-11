@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090f">
+<meta name="description" content="Saloni Verma — B.Tech CSE-AI student exploring AI, cybersecurity and software development.">
+<title>Saloni Verma | Developer Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #09090f;
+  --card: #11111b;
+  --text: #f5f3ff;
+  --muted: #a5a2b8;
+  --purple: #a78bfa;
+  --pink: #f0abfc;
+  --border: rgba(255,255,255,.10);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.container { width: min(1100px, 90%); margin: auto; }
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(9,9,15,.83);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font: 700 1.35rem 'Space Grotesk', sans-serif;
+  letter-spacing: -1px;
+}
+
+.logo span { color: var(--purple); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: .88rem;
+  color: var(--muted);
+  transition: .2s;
+}
+
+.nav-links a:hover { color: var(--pink); }
+
+.menu-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: white;
+  padding: 7px 11px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 87vh;
+  display: grid;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  padding: 85px 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 480px;
+  height: 480px;
+  right: -100px;
+  top: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,.19), transparent 68%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  color: var(--pink);
+  border: 1px solid rgba(240,171,252,.25);
+  background: rgba(240,171,252,.06);
+  border-radius: 30px;
+  padding: 7px 13px;
+  font-size: .83rem;
+  margin-bottom: 24px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: #c4b5fd;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #a78bfa;
+}
+
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 6.3rem);
+  line-height: 1.02;
+  letter-spacing: -5px;
+  max-width: 850px;
+}
+
+.gradient {
+  background: linear-gradient(100deg, #c4b5fd, #f0abfc, #f9a8d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 24px 0 30px;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 13px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: .92rem;
+  transition: transform .2s, border-color .2s;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.btn-primary {
+  color: #100d19;
+  background: linear-gradient(110deg, #c4b5fd, #f0abfc);
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.025);
+}
+
+.btn-secondary:hover { border-color: var(--purple); }
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.socials a {
+  color: var(--muted);
+  font-size: .9rem;
+  border-bottom: 1px solid transparent;
+}
+
+.socials a:hover {
+  color: var(--pink);
+  border-color: var(--pink);
+}
+
+section { padding: 85px 0; }
+
+.section-label {
+  color: var(--purple);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-size: .76rem;
+  margin-bottom: 9px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 15px;
+}
+
+.section-desc {
+  max-width: 650px;
+  color: var(--muted);
+  margin-bottom: 35px;
+}
+
+.about-grid, .project-grid, .cert-grid, .profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 25px;
+  transition: transform .25s, border-color .25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(167,139,250,.5);
+}
+
+.card h3 { font-size: 1.18rem; margin-bottom: 10px; }
+.card p { color: var(--muted); font-size: .94rem; }
+
+.icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(167,139,250,.12);
+  border: 1px solid rgba(167,139,250,.18);
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+}
+
+.tag-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 17px; }
+
+.tag {
+  color: #ded4ff;
+  background: rgba(167,139,250,.09);
+  border: 1px solid rgba(167,139,250,.17);
+  border-radius: 30px;
+  padding: 5px 11px;
+  font-size: .78rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skill-card {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--card);
+}
+
+.skill-card h3 { font-size: 1rem; margin-bottom: 9px; }
+.skill-card p { color: var(--muted); font-size: .88rem; }
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 265px;
+}
+
+.project-card .project-footer { margin-top: auto; padding-top: 20px; }
+
+.text-link {
+  display: inline-block;
+  color: var(--pink);
+  font-size: .9rem;
+  font-weight: 700;
+  margin-right: 15px;
+}
+
+.text-link:hover { color: white; }
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-card .icon { flex-shrink: 0; margin: 0; }
+.profile-card h3 { font-size: 1rem; }
+.profile-card p { font-size: .84rem; }
+
+.contact-box {
+  border: 1px solid rgba(167,139,250,.24);
+  border-radius: 22px;
+  padding: clamp(25px, 5vw, 55px);
+  background: radial-gradient(ellipse at top right, rgba(167,139,250,.12), transparent 60%), var(--card);
+}
+
+.contact-box p {
+  color: var(--muted);
+  max-width: 620px;
+  margin: 14px 0 25px;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 25px 0;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 760px) {
+  .menu-btn { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    padding: 20px 5%;
+    background: #101019;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links.open { display: flex; }
+  .hero { min-height: auto; padding: 100px 0 70px; }
+  .hero h1 { letter-spacing: -2.5px; }
+  section { padding: 65px 0; }
+  .about-grid, .project-grid, .cert-grid, .profile-grid, .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">saloni<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#profiles">Profiles</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span> B.Tech CSE – AI | MIET Meerut</div>
+    <h1>Hi, I'm Saloni.<br><span class="gradient">I build & explore.</span></h1>
+    <p>
+      A Computer Science student exploring Artificial Intelligence,
+      cybersecurity and software development. I enjoy turning ideas
+      into practical projects and learning something new with every build.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#projects">Explore My Work ↗</a>
+      <a class="btn btn-secondary" href="#contact">Let's Connect</a>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/saloniv2007" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/saloni-verma-113324381/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="https://leetcode.com/u/saloniv2007/" target="_blank" rel="noopener noreferrer">LeetCode ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container reveal">
+    <div class="section-label">01 / About me</div>
+    <h2 class="section-title">Curious mind.<br><span class="gradient">Builder mindset.</span></h2>
+    <p class="section-desc">
+      I'm pursuing B.Tech in Computer Science Engineering with Artificial
+      Intelligence at MIET, Meerut. I'm building my foundation in programming
+      while exploring AI-powered applications and security-focused solutions.
+    </p>
+
+    <div class="about-grid">
+      <article class="card">
+        <div class="icon">🎓</div>
+        <h3>Education</h3>
+        <p>B.Tech — Computer Science Engineering (AI)<br>
+        MIET, Meerut · 2025–2029</p>
+      </article>
+      <article class="card">
+        <div class="icon">🧠</div>
+        <h3>What I'm exploring</h3>
+        <p>AI applications, cybersecurity concepts, problem solving,
+        web development and practical software projects.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container reveal">
+    <div class="section-label">02 / Tech stack</div>
+    <h2 class="section-title">Things I'm <span class="gradient">learning.</span></h2>
+    <p class="section-desc">My current learning areas and tools I use to build and experiment.</p>
+
+    <div class="skills-grid">
+      <article class="skill-card">
+        <h3>⌨ Programming</h3>
+        <p>C, Python fundamentals, Java basics and problem-solving practice.</p>
+      </article>
+      <article class="skill-card">
+        <h3>🤖 AI & Data</h3>
+        <p>Generative AI concepts, AI-assisted applications and introductory ML.</p>
+      </article>
+      <article class="skill-card">
+        <h3>🛡 Security</h3>
+        <p>Cybersecurity fundamentals, scam awareness and security-focused project ideas.</p>
+      </article>
+      <article class="skill-card">
+        <h3>🌐 Web Development</h3>
+        <p>HTML, CSS, JavaScript fundamentals and Flask-based applications.</p>
+      </article>
+      <article class="skill-card">
+        <h3>🗄 Tools & Database</h3>
+        <p>Git, GitHub, VS Code and SQLite through hands-on practice.</p>
+      </article>
+      <article class="skill-card">
+        <h3>🧩 DSA</h3>
+        <p>Arrays, searching, sorting, linked lists and coding practice.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container reveal">
+    <div class="section-label">03 / Selected work</div>
+    <h2 class="section-title">Ideas into <span class="gradient">projects.</span></h2>
+    <p class="section-desc">A few projects I'm building and improving. Features are described according to their current development stage.</p>
+
+    <div class="project-grid">
+      <article class="card project-card">
+        <div class="icon">🗣️</div>
+        <h3>SpeakUp Campus</h3>
+        <p>A campus grievance and feedback platform concept designed to help students, faculty and staff report concerns, track issues and route them to relevant departments.</p>
+        <div class="tag-list">
+          <span class="tag">Python</span><span class="tag">Flask</span>
+          <span class="tag">SQLite</span><span class="tag">AI-assisted</span>
+        </div>
+        <div class="project-footer"><span class="tag">In development</span></div>
+      </article>
+
+      <article class="card project-card">
+        <div class="icon">🔎</div>
+        <h3>VerityLens</h3>
+        <p>An AI Reality Check project exploring ways to assess suspicious online content and communicate potential digital misinformation or manipulation risks.</p>
+        <div class="tag-list">
+          <span class="tag">Python</span><span class="tag">Flask</span>
+          <span class="tag">AI concepts</span>
+        </div>
+        <div class="project-footer">
+          <a class="text-link" href="https://github.com/saloniv2007/VerityLens" target="_blank" rel="noopener noreferrer">View Repository ↗</a>
+        </div>
+      </article>
+
+      <article class="card project-card">
+        <div class="icon">🛡️</div>
+        <h3>ScamShield AI</h3>
+        <p>A scam-awareness project exploring text and image-based scanning workflows, OCR and a dashboard for organizing scan results.</p>
+        <div class="tag-list">
+          <span class="tag">Python</span><span class="tag">Flask</span>
+          <span class="tag">SQLite</span><span class="tag">OCR</span>
+        </div>
+        <div class="project-footer"><span class="tag">Project work</span></div>
+      </article>
+
+      <article class="card project-card">
+        <div class="icon">✨</div>
+        <h3>Next Project</h3>
+        <p>I'm continuing to explore practical AI, cybersecurity and software ideas. More work will be added as projects develop.</p>
+        <div class="tag-list">
+          <span class="tag">Learning</span><span class="tag">Building</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="container reveal">
+    <div class="section-label">04 / Learning journey</div>
+    <h2 class="section-title">Courses & <span class="gradient">certificates.</span></h2>
+    <p class="section-desc">Selected learning credentials. Add your certificate links so visitors can verify them.</p>
+
+    <div class="cert-grid">
+      <article class="card">
+        <div class="icon">🔐</div>
+        <h3>Introduction to Cybersecurity</h3>
+        <p>Infosys learning certificate.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🌐</div>
+        <h3>Getting Started</h3>
+        <p>Infosys learning certificate.</p>
+      </article>
+      <article class="card">
+        <div class="icon">✨</div>
+        <h3>Generative AI</h3>
+        <p>Generative AI learning certificate.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🎨</div>
+        <h3>Canva</h3>
+        <p>Canva-related learning credential.</p>
+      </article>
+    </div>
+    <p style="color:var(--muted);font-size:.85rem;margin-top:18px">
+      Add the issuing platform and certificate URL for each credential before publishing.
+    </p>
+  </div>
+</section>
+
+<section id="profiles">
+  <div class="container reveal">
+    <div class="section-label">05 / Find me online</div>
+    <h2 class="section-title">My digital <span class="gradient">space.</span></h2>
+    <p class="section-desc">Connect with me and follow my learning journey across platforms.</p>
+
+    <div class="profile-grid">
+      <a class="card profile-card" href="https://github.com/saloniv2007" target="_blank" rel="noopener noreferrer">
+        <div class="icon">⌘</div><div><h3>GitHub ↗</h3><p>Projects & code</p></div>
+      </a>
+      <a class="card profile-card" href="https://www.linkedin.com/in/saloni-verma-113324381/" target="_blank" rel="noopener noreferrer">
+        <div class="icon">in</div><div><h3>LinkedIn ↗</h3><p>Professional profile</p></div>
+      </a>
+      <a class="card profile-card" href="https://leetcode.com/u/saloniv2007/" target="_blank" rel="noopener noreferrer">
+        <div class="icon">⌘</div><div><h3>LeetCode ↗</h3><p>Coding practice</p></div>
+      </a>
+      <a class="card profile-card" href="https://www.geeksforgeeks.org/user/salonir6fh/" target="_blank" rel="noopener noreferrer">
+        <div class="icon">G</div><div><h3>GeeksforGeeks ↗</h3><p>DSA & programming</p></div>
+      </a>
+      <a class="card profile-card" href="https://unstop.com/" target="_blank" rel="noopener noreferrer">
+        <div class="icon">🚀</div><div><h3>Unstop ↗</h3><p>Challenges & opportunities</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container reveal">
+    <div class="contact-box">
+      <div class="section-label">06 / Contact</div>
+      <h2 class="section-title">Have an idea?<br><span class="gradient">Let's connect.</span></h2>
+      <p>I'm interested in learning opportunities, collaborative projects, hackathons and connecting with people who love building useful technology.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/saloni-verma-113324381/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+        <a class="btn btn-secondary" href="https://github.com/saloniv2007" target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Saloni Verma</span>
+    <span>Designed with curiosity & a builder mindset ✦</span>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(isOpen));
+  menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
